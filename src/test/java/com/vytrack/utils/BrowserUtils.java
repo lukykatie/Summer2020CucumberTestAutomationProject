@@ -15,7 +15,7 @@ public class BrowserUtils {
 
     public static void wait(int seconds) {
         try {
-            Thread.sleep(seconds * 3000);
+            Thread.sleep(seconds * 1000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
@@ -34,7 +34,8 @@ public class BrowserUtils {
         wait.until(ExpectedConditions.visibilityOf(element));
         element.clear();
         element.sendKeys(text);
-        wait.until(ExpectedConditions.attributeToBe(element, "value", text));
+        //       wait.until(ExpectedConditions.attributeToBe(element, "value", text)); better way to do it
+        BrowserUtils.wait(1);
         System.out.println("Entering text: " + text);
     }
 
